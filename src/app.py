@@ -74,6 +74,42 @@ activities = {
         "schedule": "Fridays, 3:30 PM - 4:30 PM",
         "max_participants": 20,
         "participants": ["isabella@mergington.edu", "lucas@mergington.edu"]
+    },
+    "Tennis Team": {
+        "description": "Competitive and recreational tennis activities",
+        "schedule": "Tuesdays and Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 14,
+        "participants": ["marcus@mergington.edu"]
+    },
+    "Volleyball Club": {
+        "description": "Team volleyball for fitness and competition",
+        "schedule": "Mondays and Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 18,
+        "participants": ["zoe@mergington.edu", "jacob@mergington.edu"]
+    },
+    "Theater Club": {
+        "description": "Perform in school plays and dramatic productions",
+        "schedule": "Wednesdays and Fridays, 3:30 PM - 5:00 PM",
+        "max_participants": 20,
+        "participants": ["sophie@mergington.edu"]
+    },
+    "Photography Club": {
+        "description": "Learn photography techniques and digital image editing",
+        "schedule": "Thursdays, 3:30 PM - 4:30 PM",
+        "max_participants": 15,
+        "participants": ["maya@mergington.edu", "ethan@mergington.edu"]
+    },
+    "Robotics Club": {
+        "description": "Build and program robots for competitions",
+        "schedule": "Mondays and Fridays, 4:00 PM - 5:30 PM",
+        "max_participants": 16,
+        "participants": ["chris@mergington.edu"]
+    },
+    "Model United Nations": {
+        "description": "Develop diplomatic and research skills through UN simulations",
+        "schedule": "Tuesdays, 4:00 PM - 5:00 PM",
+        "max_participants": 24,
+        "participants": ["anna@mergington.edu", "kevin@mergington.edu"]
     }
 }
 
@@ -97,6 +133,16 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specific activity
     activity = activities[activity_name]
+
+    # Validate student is not already signed up    
+    if email in activity["participants"]:
+        raise HTTPException(status_code=400, detail="Student is already signed up for this activity)")
+
+    
+    # Add student
+    # Validate student is not already signed up
+    if email in activity["participants"]:
+        raise HTTPException(status_code=400, detail="Student is already signed up for this activity")
 
     # Add student
     # Validate student is not already signed up
